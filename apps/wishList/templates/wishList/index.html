@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>Wish List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wishList/style.css' %}">
+</head>
+
+<body>
+    
+    <header>
+        <h1>Hello {{logged.first_name}} {{logged.last_name}}</h1>
+        <a href="/wishes/status">View Status</a>
+        <a href="/wishes/logout">Logout</a>
+    </header>
+    <h3>WishList:</h3>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dream in logged.user_wish.all %}
+            {% if not dream.status == 'granted' %}
+            <tr>
+                <td>{{dream.item}}</td>
+                <td>{{dream.created_at}}</td>
+                <td><a class="action" href="/wishes/delete/{{dream.id}}">Remove</a>
+                <a class="action" href="/wishes/editWish/{{dream.id}}">Edit</a>
+                <a class="action" href="/wishes/grant/{{dream.id}}">Grant</a></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-lg btn-primary btn-block" href="/wishes/addWish">Add a new wish</a>
+
+    <h3>Granted Wishes:</h3>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Wisher</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Granted At</th>
+                <th scope="col">Likes</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wishes in all_dreams %}
+            <tr>
+                {% if wishes.status == 'granted' %}
+                <td>{{wishes.item}}</td>
+                <td>{{wishes.user.first_name}}</td>
+                <td>{{wishes.created_at}}</td>
+                <td>{{wishes.updated_at}}</td>
+                <td>{{wishes.likes.count}}</td>
+                {% if not logged.id == wishes.user.id %}
+                {% if logged not in wishes.likes.all %}
+                <td><a class="action" href="/wishes/like/{{wishes.id}}">Like</a></td>
+                {% endif %}
+                {% endif %}
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

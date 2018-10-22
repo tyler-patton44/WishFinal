@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #8DA6B3;
+}
+h1{
+    padding: 8px 0 8px 15px;
+    color: white;
+    background-color: #3C6478;
+    box-shadow: .5px .5px 18px rgba(0, 0, 0, 0.5);
+}
+#logo{
+    margin:0 auto;
+    display: block;
+}
+#box{
+    background-color: #3C6478;
+    height: 350px;
+    width: 45%;
+    margin: 0 auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+}
+.h3, h3{
+    font-size: 30px;
+}
+.messages{
+    list-style-type: none;
+    padding: 15px 10px;
+    border-radius: 10px;
+    background-color: rgba(255,0,0,0.5);
+    color: white;
+}
+.btn-primary{
+    margin-top: 50px;
+}
+#form1{
+    display: inline-block;
+    vertical-align: top;
+    width: 35%;
+    margin: 25px 0 0 5%;
+}
+#form1 h2{
+    text-align: center;
+    color: black;
+}
+#form1 h1{
+    text-align: center;
+}
+#form #margin{
+    display: block;
+    margin: 0 auto;
+}
+#margin{
+    width: 90%;
+    margin: 0 auto;
+}
+#form1 .forminputs{
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    background-color: white;
+    color: black;
+    box-shadow: 1px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+#form1 #inputName1{
+    display: inline-block;
+    width: 49%;
+}
+#form1 #inputName2{
+    display: inline-block;
+    width: 49%;
+}
+#form1 #inputName3{
+    width: 99.5%;
+    margin-top: 10px;
+}
+#form1 #inputName4{
+    width: 99.5%;
+    margin-top: 10px;
+}
+#form1 #inputName5{
+    width: 99.5%;
+    margin-top: 10px;
+}
+#form1 .btn-primary{
+    background-color: #40875F;
+}
+
+#form2{
+    display: inline-block;
+    vertical-align: bottom;
+    width: 35%;
+    margin: 10px 0 0 12%;
+}
+#form2 h2{
+    text-align: center;
+    color: black;
+}
+#form2 h1{
+    text-align: center;
+}
+#form2 #margin2{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}
+#form2 .forminputs{
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    background-color: white;
+    color: black;
+    box-shadow: 1px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+#form2 #inputName8{
+    width: 99.5%;
+    margin-top: 10px;
+}
+#form2 #inputName9{
+    width: 99.5%;
+    margin-top: 10px;
+}
+#form2 .btn-primary{
+    background-color: #40875F;
+}

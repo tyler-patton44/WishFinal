@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>WishList</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'wishList/style2.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Hello {{logged.first_name}} {{logged.last_name}}</h1>
+        <a href="/wishes/logout">Logout</a>
+    </header>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{{login}}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form id="form" class="form-signin" action="/wishes/add" method="post">
+        {% csrf_token %}
+        <h2 class="h3 mb-3 font-weight-normal">Make your dream come true</h2>
+        <div id="margin2">
+            <input type="hidden" name="id" value="{{logged.id}}">
+            <input class="forminputs" type="text" class="form-control" placeholder="I wish for..." name="wish" value="{{request.session.wish}}">
+            <input class="forminputs" type="text" class="form-control" placeholder="Description" name="desc" value="{{request.session.desc}}">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Add Wish</button>
+    </form>
+    <a class="btn btn-lg btn-primary btn-block" href="/wishes">Cancel</a>
+</body>
+
+</html>

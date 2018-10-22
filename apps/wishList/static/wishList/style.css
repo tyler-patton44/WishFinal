@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #8DA6B3;
+}
+header{
+    display: block;
+    padding: 5px 0 5px 0;
+    color: white;
+    background-color: #3C6478;
+    box-shadow: .5px .5px 18px rgba(0, 0, 0, 0.5);
+}
+header h1{
+    display: inline-block;
+    margin-left: 2%;
+}
+header h3{
+    display: inline-block;
+    margin-left: 30%;
+}
+header a{
+    display: inline-block;
+    margin-left: 1%;
+    padding: 8px 25px;
+    background-color: green;
+    border: 1px solid blue;
+    color: white
+}
+header a:nth-of-type(2){
+margin-left: 3%;
+}
+header a:hover{
+    color:white;
+    text-decoration: none;
+}
+.table .action{
+    padding: 10px;
+    background-color: green;
+    color: white;
+}
